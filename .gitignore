@@ -1,0 +1,6 @@
+.metadata/
+.sonarlint/
+BinarySearchQues/bin/
+BinarySearchQues/.classpath
+BinarySearchQues/.project
+BinarySearchQues/.settings/
