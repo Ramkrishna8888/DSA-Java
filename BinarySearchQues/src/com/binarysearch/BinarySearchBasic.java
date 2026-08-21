@@ -14,7 +14,7 @@ public class BinarySearchBasic {
 			 // but without outer bracket it would be high - low (7-4)= 3 then 3/2 = 1 and then low + 1 = 5
 			 if(target == arr[mid]) {
 				 ans = mid;
-				 break;
+				 break; // comment for testing the github connection with STS
 			 }
 			 else if(target < arr[mid]) {
 				 high = mid - 1;
