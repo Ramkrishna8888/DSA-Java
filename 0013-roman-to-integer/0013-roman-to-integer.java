@@ -1,5 +1,7 @@
 class Solution {
     public int getIntValue(char ch){
+        // optimised the space complexity as well 
+
         int value = 0;
         switch(ch){
         case 'I' : value = 1; break;
@@ -9,22 +11,19 @@ class Solution {
         case 'C' : value = 100; break;
         case 'D' : value = 500; break;
         case 'M' : value = 1000; break;
-        default : value = 0;
     }
     return value;
     }
 
     public int romanToInt(String s) {
-        StringBuilder sb = new StringBuilder(s);
         int current = 0;
         int next = 0;
         int ans = 0;
-        for(int i = 0; i<sb.length(); i++){
-            current = (i>=0) ? getIntValue(sb.charAt(i)) : 0;
-            next = (i<sb.length()-1) ? getIntValue(sb.charAt(i+1)) : 0;
+        for(int i = 0; i<s.length(); i++){
+            current = getIntValue(s.charAt(i));
+            next = (i<s.length()-1) ? getIntValue(s.charAt(i+1)) : 0;
             if(current<next){
-                int subtract = next-current;
-                ans += subtract;
+                ans += (next-current);
                 i++;
             }
             else{
