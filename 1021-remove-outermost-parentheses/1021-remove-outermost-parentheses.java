@@ -1,26 +1,22 @@
-/*depth > 0 → hum parentheses ke group ke andar hain.
-depth == 0 → hum kisi group ke andar nahi hain. Ye group ke start hone se pehle ya group complete hone ke baad ho sakta hai.
-depth < 0 → valid parentheses string mein aisa nahi hona chahiye. Iska matlab kisi closing bracket ka matching opening bracket nahi tha.
-*/
-
 class Solution {
     public String removeOuterParentheses(String s) {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder(s);
+         StringBuilder sb2 = new StringBuilder();
         int depth = 0;
-        for(int i = 0; i<s.length(); i++){
-            if(s.charAt(i)=='('){
+        for(int i = 0; i<sb.length(); i++){
+            if(sb.charAt(i)=='('){
                 if(depth>0){
-                    sb.append(s.charAt(i));
+                    sb2.append(sb.charAt(i));
                 }
                 depth++;
             }
-            else{
+            else if(sb.charAt(i)==')'){
                 depth--;
                 if(depth>0){
-                    sb.append(s.charAt(i));
+                    sb2.append(sb.charAt(i));
                 }
             }
         }
-        return sb.toString();
+        return sb2.toString();
     }
 }
